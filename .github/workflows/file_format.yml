@@ -23,6 +23,7 @@ jobs:
       
       - name: step 2 - Run doxygen
         run: .github/workflows/size.sh
+        shell: bash
       
       - name: Commit files
         id: commit
