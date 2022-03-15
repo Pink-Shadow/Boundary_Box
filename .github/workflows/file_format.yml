@@ -15,14 +15,14 @@ jobs:
         run: |
           git pull
       
-      - name: step 1 - Install doxygen
+      - name: step 1 - Install imagemagick-6.q16
         run: |
           sudo apt-get update
           sudo apt-get upgrade -y
           sudo apt-get install imagemagick-6.q16
       
       - name: step 2 - Run doxygen
-        run: ./size.sh
+        run: .github/workflows/size.sh
       
       - name: Commit files
         id: commit
