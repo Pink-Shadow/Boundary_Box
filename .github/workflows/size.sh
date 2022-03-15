@@ -11,4 +11,4 @@ for file in $files; do
     fi
 done
 echo $wrong_files
-python3 .github/workflows/update_json.py ${wrong_files[@]}
+python3 ../.github/workflows/update_json.py ${wrong_files[@]}
