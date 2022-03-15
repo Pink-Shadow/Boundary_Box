@@ -1,0 +1,42 @@
+name: Check file size
+
+on:
+  push:
+    branches: main
+      
+  workflow_dispatch:
+jobs:
+       
+  generate-doxygen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: update repo
+        run: |
+          git pull
+      
+      - name: step 1 - Install doxygen
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get install imagemagick-6.q16
+      
+      - name: step 2 - Run doxygen
+        run: ./size.sh
+      
+      - name: Commit files
+        id: commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add --all
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "::set-output name=push::false"
+          else
+            git commit -m "Removed files with wrong dimension" -a
+            echo "::set-output name=push::true"
+          fi
+        shell: bash
+      - name: Push changes
+        if: steps.commit.outputs.push == 'true'
+        run: git push
