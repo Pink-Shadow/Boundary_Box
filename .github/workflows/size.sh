@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 cd assets
 files=$(ls *.jpg *.JPG)
 wrong_files=()
