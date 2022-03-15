@@ -21,9 +21,8 @@ jobs:
           sudo apt-get upgrade -y
           sudo apt-get install imagemagick-6.q16
       
-      - name: step 2 - Run doxygen
+      - name: step 2 - Run size.sh
         run: .github/workflows/size.sh
-        shell: bash
       
       - name: Commit files
         id: commit
