@@ -14,3 +14,4 @@ for file in $files; do
 done
 if [ ${#errors[@]} -gt 0 ]; then
     python3 ../.github/workflows/update_json.py ${wrong_files[@]}
+fi
