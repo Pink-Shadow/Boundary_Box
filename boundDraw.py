@@ -134,7 +134,7 @@ class MyWidget(QWidget):
                             }
                         ]
                     }
-            path_to_json = '/'.join(__file__.split('/')[:-1]) + "coordinates.json"
+            path_to_json = '/'.join(__file__.split('/')[:-1]) + "/coordinates.json"
             print(self.path)
             file = open(f'{path_to_json}', 'r')
             file_str = file.read()
